@@ -9,11 +9,11 @@ BDPartidas* bdpartidas_criar()
 {
     BDPartidas* bd_p = (BDPartidas*) malloc(sizeof(BDPartidas));
     if (bd_p == NULL) {
-        printf("Erro ao alocar memória para o banco de partidas.");
+        printf("Erro ao alocar memória para o banco de partidas.\n");
         return NULL;
     }
     bd_p->quantidade = 0;
-    // Inicializa todos os ponteiros do vetor como NULL por segurança
+    // Inicializa todos os ponteiros do vetor como NULL
     for (int i = 0; i < MAX_PARTIDAS; i++) {
         bd_p->partidas[i] = NULL;
     }

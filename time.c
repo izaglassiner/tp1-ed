@@ -9,7 +9,7 @@ Time* time_criar(int id, char* nome)
 {
     Time *t = (Time *) malloc(sizeof(Time)); // Alocando memória para um novo time
     if (t == NULL) {
-        printf("Erro ao alocar memória para o time");
+        printf("Erro ao alocar memória para o time.\n");
         return NULL;
     }
     t->id = id;

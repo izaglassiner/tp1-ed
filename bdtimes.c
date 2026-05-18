@@ -9,7 +9,7 @@ BDTimes* bdtimes_criar()
 {
     BDTimes* bd_t = (BDTimes*) malloc(sizeof(BDTimes));
     if (bd_t == NULL){
-        printf("Erro ao alocar memória para BDTimes.");
+        printf("Erro ao alocar memória para BDTimes.\n");
         return NULL;
     }
     bd_t->quantidade = 0;
@@ -38,7 +38,7 @@ int bdtimes_carregar_csv(BDTimes* bd_t, char* caminho)
     }
     FILE* arquivo = fopen(caminho, "r");
     if (arquivo == NULL) {
-        printf("Erro ao abrir o arquivo.");
+        printf("Erro ao abrir o arquivo.\n");
         return 0;
     }
     char linha[100];

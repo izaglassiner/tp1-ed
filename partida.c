@@ -9,7 +9,7 @@ Partida* partida_criar(int id, int id_t1, int id_t2, int g1, int g2)
 {
     Partida *p = (Partida *) malloc(sizeof(Partida)); // Alocando memória para uma nova partida
     if (p == NULL){
-        printf("Erro ao alocar memória para partida.");
+        printf("Erro ao alocar memória para partida.\n");
         return NULL;
     }
     p->id = id;

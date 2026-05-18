@@ -26,7 +26,7 @@ void menu_consultar_partidas(BDPartidas* bd_p, BDTimes* bd_t) {
     }
 
     if (modo < 1 || modo > 3) {
-        printf("Opcao invalida.\n");
+        printf("Opcão inválida.\n");
         return;
     }
 
@@ -37,15 +37,15 @@ void menu_consultar_partidas(BDPartidas* bd_p, BDTimes* bd_t) {
 }
 
 int main() {
-    // 1. Carrega os times
+    // Carregando times
     BDTimes* bd_t = bdtimes_criar();
-    if (bdtimes_carregar_csv(bd_t, "bd_time.csv") == 0) {
-        printf("Erro ao carregar bd_time.csv\n");
+    if (bdtimes_carregar_csv(bd_t, "times.csv") == 0) {
+        printf("Erro ao carregar times.csv\n");
         bdtimes_destruir(bd_t);
         return 1;
     }
 
-    // 2. Carrega as partidas
+    // Carregando partidas
     BDPartidas* bd_p = bdpartidas_criar();
     if (bdpartidas_carregar_csv(bd_p, "bd_partidas.csv") == 0) {
         printf("Erro ao carregar bd_partidas.csv\n");
@@ -54,21 +54,21 @@ int main() {
         return 1;
     }
 
-    // 3. Processa os resultados e atualiza as estatísticas dos times
+    // Processando resultados e atualizando estatísticas dos times
     bdpartidas_processar_resultados(bd_p, bd_t);
 
-    // 4. Loop do menu
+    // Loop do menu
     char opcao = ' ';
     while (opcao != 'Q' && opcao != 'q') {
-        printf("\n=== Sistema de Gerenciamento de Partidas ===\n");
+        printf("\nSistema de Gerenciamento de Partidas\n");
         printf("1 - Consultar time\n");
         printf("2 - Consultar partidas\n");
         printf("3 - Atualizar partida (desabilitado)\n");
         printf("4 - Remover partida (desabilitado)\n");
         printf("5 - Inserir partida (desabilitado)\n");
-        printf("6 - Imprimir tabela de classificacao\n");
+        printf("6 - Imprimir tabela de classificaçãoo\n");
         printf("Q - Sair\n");
-        printf("Opcao: ");
+        printf("Opção: ");
         scanf(" %c", &opcao);
 
         if (opcao == '1') {
@@ -76,16 +76,16 @@ int main() {
         } else if (opcao == '2') {
             menu_consultar_partidas(bd_p, bd_t);
         } else if (opcao == '6') {
-            printf("\nImprimindo classificacao...\n");
+            printf("\nImprimindo classificação...\n");
             bdtimes_imprimir_tabela(bd_t);
         } else if (opcao != 'Q' && opcao != 'q') {
-            printf("Opcao invalida ou desabilitada.\n");
+            printf("Opção inválida ou desabilitada.\n");
         }
     }
 
     printf("Encerrando o sistema.\n");
 
-    // 5. Libera memória
+    // Liberando memória
     bdpartidas_destruir(bd_p);
     bdtimes_destruir(bd_t);
 
